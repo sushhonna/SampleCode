@@ -1,0 +1,38 @@
+<div class="main-body">
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+            <span class="m-3">Email GUI</span>
+        </button>
+    </mat-toolbar>
+    <div class="container mt-3">
+        <form (ngSubmit)="onSubmit()">
+            <h1 class="p-3">Compose mail</h1>
+            <mat-form-field class="field" appearance="fill">
+                <mat-label>To</mat-label>
+                <input type="email" name="to" [(ngModel)]="data.to" matInput>
+            </mat-form-field>
+            <mat-form-field class="field" appearance="fill">
+                <mat-label>CC</mat-label>
+                <input name="cc" [(ngModel)]="data.cc" matInput>
+            </mat-form-field>
+            <mat-form-field class="field" appearance="fill">
+                <mat-label>Subject</mat-label>
+                <input name="subject" [(ngModel)]="data.subject" matInput autocomplete="off">
+            </mat-form-field>
+            <mat-form-field class="example-full-width field">
+                <mat-label>Enter the message</mat-label>
+                <textarea name="message" [(ngModel)]="data.message" rows="5" matInput
+                    placeholder="Dear Sir, hope you are doing well..."></textarea>
+            </mat-form-field>
+            <div class="text-center">
+                <mat-spinner *ngIf="spinner" class="mx-auto"></mat-spinner>
+                <button [disabled]="spinner" type="submit" mat-raised-button color="primary">Send</button>
+                <button type="reset" class="m-2" mat-raised-button color="accent">Reset</button>
+                <button class="m-2" mat-raised-button color="primary" (click)="calender()">Calender</button>
+                <button class="m-2" mat-raised-button color="accent" (click)="calculator()">Calculator</button>
+            </div><br>
+            <!-- {{data | json}} -->
+        </form>
+    </div>
+</div>

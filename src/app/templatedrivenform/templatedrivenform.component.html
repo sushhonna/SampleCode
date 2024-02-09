@@ -1,0 +1,61 @@
+<app-heading [pageName]="pagename"></app-heading>
+<div class="container mt-5">
+    <form #tdForm="ngForm" (ngSubmit)="onSubmit(tdForm)">     
+        <!-- #tdForm this template referance variable we have to use only when declaring the TDF  -->
+        <div class="form-group">
+            <label>First name</label>
+            <input type="text" placeholder="Name" 
+            class="form-control" 
+            name="fname" 
+            ngModel 
+            #fname='ngModel' 
+            (change)="getValue(fname)" 
+            [ngClass]="{'is-invalid' : fname.touched && fname.invalid}" 
+            minlength="5"
+            maxlength="20"
+            required
+            >
+            <div *ngIf="fname.errors?.['required']">
+                <div class="alert alert-danger" *ngIf="fname.touched && fname.invalid">First name is required.</div>
+            </div>
+            <div *ngIf="fname.errors?.['minlength']">
+                <div class="alert alert-danger" *ngIf="fname.touched && fname.invalid">First name length should be at least 5 charecter.</div>
+            </div>
+        </div><br>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" 
+            placeholder="Name" 
+            class="form-control" 
+            name="email" 
+            ngModel 
+            required 
+            #email="ngModel" 
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+            [ngClass]="{'is-invalid' : email.touched && email.invalid}" 
+            >
+            <div *ngIf="email.errors?.['required']">
+                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">Email is required.</div>
+            </div>
+            <div *ngIf="email.errors?.['pattern']">
+                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">Invalid email address.</div>
+            </div>
+        </div><br>
+        <div class="form-group">
+            <label>Address</label>
+            <textarea cols="20" rows="10" 
+            placeholder="Address" 
+            class="form-control" 
+            name="address" 
+            ngModel
+            #address = 'ngModel'
+            required
+            [ngClass]="{'is-invalid' : address.touched && address.invalid}" 
+            ></textarea>
+            <div *ngIf="address.errors?.['required']">
+                <div class="alert alert-danger" *ngIf="address.touched && address.invalid">Address is required.</div>
+            </div>
+        </div><br>
+        <button type="submit" class="btn btn-primary" [disabled]="tdForm.invalid"> Submit </button>
+    </form>
+</div>

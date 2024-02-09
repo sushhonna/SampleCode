@@ -1,0 +1,27 @@
+<div class="main-body">
+    <app-heading [pageName]="pagename"></app-heading>
+    <div class="container">
+        <div class="card">
+            <h1 class="card-header text-center p-5 text-primary"> CALCULATOR </h1>
+            <div class="card-body p-5">
+                <div class="form-group d-flex flex-row">
+                    <input [(ngModel)]='num1' type="number" name="num1" placeholder="num1" class="form-control m-2">
+                    <input [(ngModel)]='num2' type="number" name="num2" placeholder="num2" class="form-control m-2">
+                </div>
+
+                <div class="d-flex flex-row justify-content-between mt-5">
+                    <button class="btn btn-success" (click)="addition()"> ADDITION </button>
+                    <button class="btn btn-danger" (click)="substraction()"> SUBSTRACTION </button>
+                    <button class="btn btn-info" (click)="multiplication()"> MULTIPLICATION </button>
+                    <button class="btn btn-warning" (click)="division()"> DIVISION </button>
+                    <button class="btn btn-primary" (click)="square()"> SQUARE </button>
+                    <button class="btn btn-info" (click)="squareRoot()"> SQUARE-ROOT </button>
+                    <button type="reset" class="btn btn-secondary" (click)="clear()"> CLEAR </button>
+                </div>
+            </div>
+            <div class="card-footer text-center p-5 text-dark">
+                <h4>{{action}} <b class="text-success">{{result}}</b> </h4>
+            </div>
+        </div>
+    </div>
+</div>

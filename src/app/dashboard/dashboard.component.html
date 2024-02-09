@@ -1,0 +1,13 @@
+<div>
+    <!-- one time component reuse in another multiple component -->
+    <app-heading [pageName]="pagename"></app-heading>
+    <!-- multiple times component reuse in onother one component-->
+    <app-reusable *ngFor="let item of inputdata" [inputData]="item"></app-reusable>
+
+
+    <button class="text-center" mat-raised-button color="primary" (click)="sendMail()">Send Email</button>
+    <button class="text-center m-2" mat-raised-button color="primary" (click)="parentData()">Parent Component</button>
+    <button class="text-center m-2" mat-raised-button color="primary" (click)="taskPage()">Task Component</button>
+    <button class="text-center m-2" mat-raised-button color="primary" (click)="tdfPage()">TD-Form</button>
+    <button class="text-center m-2" mat-raised-button color="primary" (click)="rfPage()">Reactive-Form</button>
+</div>

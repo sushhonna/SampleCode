@@ -1,0 +1,12 @@
+<div class="main-body">
+    <app-heading [pageName]="pagename"></app-heading>
+    <div class="calender">
+        <h1 class="card-header text-center p-2 text-primary"> CALENDER </h1>
+        <mat-card class="demo-inline-calendar-card">
+            <mat-calendar [(selected)]="selected"></mat-calendar>
+        </mat-card>
+        <div class="card-footer p-3 text-success">
+            <b>Selected date: {{selected}}</b>
+        </div>
+    </div>
+</div>

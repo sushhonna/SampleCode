@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>User Register</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="form-group p-1">
+        <label for="firstName">first name :</label> 
+        <input type="text" class="m-3" placeholder="First Name" formControlName="firstName">
+      </div> <br>
+      <div class="form-group p-1">
+        <label for="firstName">last name :</label> 
+        <input type="text" class="m-3" placeholder="Last Name" formControlName="lastName">
+      </div> <br>
+      <div class="form-group p-1">
+        <label for="firstName">email :</label> &nbsp; &nbsp; &nbsp;
+        <input type="email" class="m-3" placeholder="sush@gmail.com" formControlName="email">
+      </div> <br>
+      <div class="form-group p-1">
+        <label for="firstName">password :</label> 
+        <input type="password" class="m-3" placeholder="Password" formControlName="pass">
+      </div> <br>
+      <div class="form-group p-1">
+        <label for="firstName">Repass :</label> &nbsp; &nbsp;
+        <input type="password" class="m-3" placeholder="Re-password" formControlName="repass">
+      </div> <br>
+      <span class="text-success">{{msg}}</span>
+      <div class="form-group">
+        <button type="submit" [disabled]="!registrationForm.valid" class="btn btn-success m-3">Submit Registration</button> 
+        <button type="submit"  class="btn btn-success btns m-3" (click)="login()">Login</button>
+      </div>
+    </form>
+  </div>

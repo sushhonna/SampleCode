@@ -1,0 +1,20 @@
+<app-heading [pageName]="parentName"></app-heading>
+<div class="d-flex flex-row">
+    <div class="parent-block m-5">
+        <h1>{{titleName}}</h1>
+        <div class="form-group">
+            <h5>Student name :</h5>
+            <input #name type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <h5>Mark :</h5>
+            <input #mark type="number" class="form-control">
+        </div>
+        <button class="btn btn-primary mt-2" (click)="transferData(name.value, mark.value)"> Submit </button>
+        <p>{{response}}</p>
+    </div>
+    <div class="vertical mt-5"></div>
+    <div class="child-block m-5">
+        <app-child [parentData]="parentdata" (dataUpdateEvent)="updateTitle($event)"></app-child>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="d-flex flex-row">
+    <div class="main-binding">
+        <b>Task on data bindings</b><br><br>
+        <input type="text" placeholder="Add title" [(ngModel)]="title"><br><br>
+        <textarea cols="20" rows="6" placeholder="Add sub-title" [(ngModel)]="subTitle"></textarea><br><br>
+        <input type="text" placeholder="Add image" [(ngModel)]="image"><br><br>
+        <input type="text" placeholder="Add url" [(ngModel)]="url"><br><br>
+        <input type="checkbox" [(ngModel)]="addBackground"> Add Background<br><br>
+        <div>
+            <b>{{title}}</b><br>
+            <p><span [class.add-bg]="addBackground">{{subTitle}}</span></p><br>
+            <img [src]="image" alt=""><br>
+            <a [href]="url" target="_blank" [style.display]="url? 'block' : 'none'"> More Details </a>
+        </div>
+    </div>
+
+    <div class="vertical mt-5"></div>
+
+    <div class="main-directive">
+        <b>Task on inbuilt directives</b><br><br>
+        <input type="text" placeholder="Name" [(ngModel)]="name"><br><br>
+        <input type="text" placeholder="Email" [(ngModel)]="email"><br><br>
+        <textarea cols="20" rows="6" placeholder="Address" [(ngModel)]="address"></textarea><br><br>
+        <button (click)="saveData()">Save Data</button>
+        <!-- <div class="table-area"> -->
+            <div *ngIf="userArray.length > 0 ; else elseBlockMsg ">
+                <table class="table table-borded">
+                    <thead>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Action</th>
+                    </thead>
+                    <tr *ngFor="let user of userArray; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.address}}</td>
+                        <td><button (click)="onDelete(i)">Delete</button></td>
+                    </tr>
+                </table>
+            </div>
+            <ng-template #elseBlockMsg>
+                <p>No data to show</p>
+            </ng-template>
+           
+        <!-- </div> -->
+    </div>
+</div>

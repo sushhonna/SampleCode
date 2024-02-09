@@ -1,0 +1,33 @@
+<div>
+    <h1>{{titleName}}</h1>
+
+    <p class="text-warning"> // Example of @Input() decorator (code written in child but can send data from parent to
+        chile only)</p>
+    <h4>Student name is <span class="text-success">{{parentData.name}}</span> and mark is <span
+            class="text-success">{{parentData.mark}}</span></h4>
+
+    <p class="text-warning"> // Example of using service & @ViewChild() (code written in parent but can send data from
+        parent to chind and
+        viceversa)</p>
+    <table class="table table-bordered">
+        <thead>
+            <th>Student Name</th>
+            <th>Student Mark</th>
+        </thead>
+        <tbody *ngFor="let item of listArray">
+            <td>{{item.name}}</td>
+            <td>{{item.mark}}</td>
+        </tbody>
+    </table>
+
+    <p class="text-warning"> // Example of @Output() decorator (code written in child but can send data from chind to
+        parent only)</p>
+    <div class="form-group">
+        <h6>Enter the value to change the title of parent component :</h6>
+        <input type="text" class="form-control m-1" #title>
+    </div>
+    <button class="btn btn-primary m-1" (click)="dataUpdateEvent.emit(title.value)">Change parent title</button>
+
+    <p class="text-warning"> // Example of state management (session/local storage)
+    <h4>Welcome to my new channel : <span class="text-success">{{channelName}}</span> </h4>
+</div>

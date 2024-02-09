@@ -1,0 +1,16 @@
+.main-body{
+    background-color: rgb(177, 171, 171);
+    height: 100%;
+}
+.container{
+    margin: auto;
+    width: 50%;
+    height: 80%;
+    background-color: white;
+    .field{
+        width: 100%;
+    }
+    h1{
+        text-align: center;
+    }
+}

@@ -1,0 +1,9 @@
+<mat-card class="text-center main-card mt-3" [ngClass]="inputData.borderClass">
+    <mat-card-header>
+        <mat-card-subtitle>{{inputData.gender}}</mat-card-subtitle>
+        <mat-card-title>{{inputData.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p [style.color]="inputData.color"><b>Relation : </b> {{inputData.familyMember}}</p>
+    </mat-card-content>
+</mat-card>
